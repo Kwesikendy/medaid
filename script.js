@@ -18,6 +18,35 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // --- Mobile Nav (Hamburger) ---
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileNavOverlay = document.getElementById('mobile-nav-overlay');
+    const mobileNavClose = document.getElementById('mobile-nav-close');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+    const openMobileMenu = () => {
+        mobileNavOverlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeMobileMenu = () => {
+        mobileNavOverlay.classList.remove('open');
+        document.body.style.overflow = '';
+    };
+
+    if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', openMobileMenu);
+    if (mobileNavClose) mobileNavClose.addEventListener('click', closeMobileMenu);
+
+    // Close when any nav link is clicked
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+    });
+
+    // Close on backdrop click
+    mobileNavOverlay.addEventListener('click', (e) => {
+        if (e.target === mobileNavOverlay) closeMobileMenu();
+    });
+
     // --- Dynamic Year for Copyright ---
     const yearSpan = document.getElementById('year');
     if (yearSpan) {
@@ -45,6 +74,41 @@ document.addEventListener('DOMContentLoaded', () => {
     revealElements.forEach(el => {
         revealObserver.observe(el);
     });
+
+    // --- Stats Ticker Count-Up Animation ---
+    const statNumbers = document.querySelectorAll('.stat-number');
+    let hasCounted = false;
+
+    const countUp = (element) => {
+        const target = +element.getAttribute('data-target');
+        const suffix = element.getAttribute('data-suffix') || '';
+        const duration = 2000; // ms
+        const increment = target / (duration / 16); // roughly 60fps
+        let current = 0;
+
+        const updateCounter = () => {
+            current += increment;
+            if (current < target) {
+                element.innerText = Math.ceil(current) + suffix;
+                requestAnimationFrame(updateCounter);
+            } else {
+                element.innerText = target + suffix;
+            }
+        };
+        updateCounter();
+    };
+
+    const statsObserver = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting && !hasCounted) {
+            hasCounted = true;
+            statNumbers.forEach(stat => countUp(stat));
+        }
+    }, { threshold: 0.5 });
+
+    const statsSection = document.querySelector('.stats-ticker');
+    if (statsSection) {
+        statsObserver.observe(statsSection);
+    }
 
 
 
@@ -98,4 +162,107 @@ document.addEventListener('DOMContentLoaded', () => {
             carousel.scrollLeft = scrollLeft - walk;
         });
     }
+
+    // --- Admission Probability Calculator ---
+    const calcBtn = document.getElementById('calculate-btn');
+    const gradeSelects = document.querySelectorAll('.grade-select');
+    const gaugeFill = document.getElementById('gauge-fill');
+    const gaugeLabel = document.getElementById('gauge-label');
+    const calcAggregate = document.getElementById('calc-aggregate');
+    const calcMessage = document.getElementById('calc-message');
+
+    if (calcBtn) {
+        calcBtn.addEventListener('click', () => {
+            let totalScore = 0;
+            // Assume Core subjects add up to best 2 (Math + English) mostly.
+            // Let's simplify: User inputs 4 electives. We assume core subjects add ~4 to the aggregate.
+            // So Total Aggregate = (Sum of 4 electives) + 4 (for Core)
+            let electiveSum = 0;
+            gradeSelects.forEach(select => {
+                electiveSum += parseInt(select.value);
+            });
+            
+            // Standard core assumption (Core Math + English + Integrated Science) = maybe 3 to 6
+            const assumedCoreAggregate = 4;
+            const finalAggregate = electiveSum + assumedCoreAggregate;
+
+            // Medicine at KNUST usually requires aggregate 6-8.
+            let probability = 0;
+            let message = "";
+            let strokeColor = "";
+
+            if (finalAggregate <= 6) {
+                probability = 95;
+                message = "Excellent chances! You are highly competitive for KNUST Medicine.";
+                strokeColor = "#10b981"; // Green
+            } else if (finalAggregate <= 8) {
+                probability = 75;
+                message = "Good chances! You're in the competitive range, but it depends on the year's cutoff.";
+                strokeColor = "#f59e0b"; // Yellow/Orange
+            } else if (finalAggregate <= 10) {
+                probability = 40;
+                message = "Borderline. Consider applying for related programs like BDS, PharmD, or BSc Nursing as backups.";
+                strokeColor = "#e31837"; // Red
+            } else {
+                probability = 10;
+                message = "Very low chances for Medicine. Explore other excellent science/healthcare programs at KNUST.";
+                strokeColor = "#94a3b8"; // Gray
+            }
+
+            // Animate Gauge (Circumference of semi-circle is ~125.6)
+            // Stroke dasharray is 125.6. Offset = 125.6 - (probability / 100) * 125.6
+            const offset = 125.6 - ((probability / 100) * 125.6);
+            
+            gaugeFill.style.strokeDashoffset = offset;
+            gaugeFill.style.stroke = strokeColor;
+            
+            // Animate Number
+            let currentProb = 0;
+            const inc = probability / 30;
+            const probInterval = setInterval(() => {
+                currentProb += inc;
+                if (currentProb >= probability) {
+                    gaugeLabel.innerText = probability + "%";
+                    clearInterval(probInterval);
+                } else {
+                    gaugeLabel.innerText = Math.floor(currentProb) + "%";
+                }
+            }, 30);
+
+            calcAggregate.innerText = "Estimated Aggregate: " + finalAggregate;
+            calcMessage.innerText = message;
+        });
+    }
+
+    // --- Mentor Filtering ---
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const teamCards = document.querySelectorAll('.team-card');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all
+            filterBtns.forEach(b => b.classList.remove('active'));
+            // Add active class to clicked
+            btn.classList.add('active');
+
+            const filterValue = btn.getAttribute('data-filter');
+
+            teamCards.forEach(card => {
+                const year = card.getAttribute('data-year');
+                const shs = card.getAttribute('data-shs');
+
+                if (filterValue === 'all') {
+                    card.style.display = 'block';
+                    setTimeout(() => card.style.opacity = '1', 50);
+                } else if (filterValue === year || filterValue === shs) {
+                    card.style.display = 'block';
+                    setTimeout(() => card.style.opacity = '1', 50);
+                } else {
+                    card.style.opacity = '0';
+                    setTimeout(() => card.style.display = 'none', 300);
+                }
+            });
+        });
+    });
+
 });

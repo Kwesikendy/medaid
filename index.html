@@ -29,11 +29,23 @@
                 <a href="#team">Team</a>
             </nav>
             <a href="#apply" class="btn btn-primary">Apply Now</a>
-            <div class="mobile-menu-btn">
+            <div class="mobile-menu-btn" id="mobile-menu-btn">
                 <i class="ri-menu-4-line"></i>
             </div>
         </div>
     </header>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav-overlay" id="mobile-nav-overlay">
+        <button class="mobile-nav-close" id="mobile-nav-close"><i class="ri-close-line"></i></button>
+        <nav class="mobile-nav-links">
+            <a href="#about" class="mobile-nav-link">About Us</a>
+            <a href="#programs" class="mobile-nav-link">Mentorship Programs</a>
+            <a href="#resources" class="mobile-nav-link">Resources</a>
+            <a href="#team" class="mobile-nav-link">Team</a>
+            <a href="#apply" class="btn btn-primary" style="margin-top: 1rem;">Apply Now</a>
+        </nav>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
@@ -51,6 +63,32 @@
                 </div>
             </div>
         </div>
+        <div class="scroll-indicator">
+            <div class="mouse"></div>
+            <p>Scroll Down</p>
+        </div>
+    </section>
+
+    <!-- Stats Ticker Section -->
+    <section class="stats-ticker">
+        <div class="container stats-container">
+            <div class="stat-item reveal-up">
+                <h3 class="stat-number" data-target="500">0</h3>
+                <p>Students Mentored</p>
+            </div>
+            <div class="stat-item reveal-up" style="transition-delay: 0.1s;">
+                <h3 class="stat-number" data-target="94" data-suffix="%">0</h3>
+                <p>Admission Success Rate</p>
+            </div>
+            <div class="stat-item reveal-up" style="transition-delay: 0.2s;">
+                <h3 class="stat-number" data-target="3">0</h3>
+                <p>Medical Programs</p>
+            </div>
+            <div class="stat-item reveal-up" style="transition-delay: 0.3s;">
+                <h3 class="stat-number" data-target="50" data-suffix="+">0</h3>
+                <p>Active Mentors</p>
+            </div>
+        </div>
     </section>
 
     <!-- The Journey Section -->
@@ -59,38 +97,39 @@
             <div class="section-header reveal-up">
                 <h2>The Journey</h2>
             </div>
-            <div class="journey-grid">
-                <!-- Card 1 -->
-                <div class="journey-card reveal-up" style="transition-delay: 0.1s;">
-                    <div class="card-icon">
-                        <i class="ri-search-eye-line"></i>
+            <div class="timeline">
+                <div class="timeline-line"></div>
+                <!-- Node 1 -->
+                <div class="timeline-node reveal-up">
+                    <div class="timeline-icon"><i class="ri-search-eye-line"></i></div>
+                    <div class="timeline-content">
+                        <h3>DISCOVERY</h3>
+                        <p>Is Medicine right for you? We help you explore the realities of a medical career.</p>
                     </div>
-                    <h3>DISCOVERY</h3>
-                    <p>- Is Med for You?</p>
                 </div>
-                <!-- Card 2 -->
-                <div class="journey-card reveal-up" style="transition-delay: 0.2s;">
-                    <div class="card-icon">
-                        <i class="ri-group-line"></i>
+                <!-- Node 2 -->
+                <div class="timeline-node reveal-up" style="transition-delay: 0.1s;">
+                    <div class="timeline-icon"><i class="ri-draft-line"></i></div>
+                    <div class="timeline-content">
+                        <h3>WASSCE PREP</h3>
+                        <p>Get a personalized mentor to guide you through your SHS subjects and exams.</p>
                     </div>
-                    <h3>GUIDANCE</h3>
-                    <p>- Personalized Mentor</p>
                 </div>
-                <!-- Card 3 -->
-                <div class="journey-card reveal-up" style="transition-delay: 0.3s;">
-                    <div class="card-icon">
-                        <i class="ri-building-4-line"></i>
+                <!-- Node 3 -->
+                <div class="timeline-node reveal-up" style="transition-delay: 0.2s;">
+                    <div class="timeline-icon"><i class="ri-building-4-line"></i></div>
+                    <div class="timeline-content">
+                        <h3>KNUST ADMISSION</h3>
+                        <p>Expert guidance on your university application to secure your spot.</p>
                     </div>
-                    <h3>PREPARATION</h3>
-                    <p>- KNUST Entry</p>
                 </div>
-                <!-- Card 4 -->
-                <div class="journey-card reveal-up" style="transition-delay: 0.4s;">
-                    <div class="card-icon">
-                        <i class="ri-heart-pulse-line"></i>
+                <!-- Node 4 -->
+                <div class="timeline-node reveal-up" style="transition-delay: 0.3s;">
+                    <div class="timeline-icon"><i class="ri-heart-pulse-line"></i></div>
+                    <div class="timeline-content">
+                        <h3>WHITE COAT SUPPORT</h3>
+                        <p>Continuous support from entry all the way to your graduation day.</p>
                     </div>
-                    <h3>SUPPORT</h3>
-                    <p>- Your Med School Family</p>
                 </div>
             </div>
         </div>
@@ -100,10 +139,8 @@
     <section class="why-us" id="about">
         <div class="container why-us-container">
             <div class="why-us-image reveal-right">
-                <img src="https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&cs=tinysrgb&w=800" alt="MedAid Team" class="illustration">
-                <!-- Abstract floating elements for a premium feel -->
-                <div class="floating-shape shape-1"></div>
-                <div class="floating-shape shape-2"></div>
+                <img src="https://images.pexels.com/photos/5215024/pexels-photo-5215024.jpeg?auto=compress&cs=tinysrgb&w=800" alt="African Medical Students" class="illustration">
+                <img src="medaid.png" alt="MedAid Watermark" class="watermark-logo">
             </div>
             <div class="why-us-content reveal-left">
                 <h2>Learn from <br><span class="highlight">The MedAid Team.</span></h2>
@@ -141,6 +178,79 @@
         </div>
     </section>
 
+    <!-- Admission Calculator Widget -->
+    <section class="calculator" id="resources">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <h2>Admission Probability <span class="highlight">Calculator</span></h2>
+                <p>Select your elective subjects and enter your WASSCE grades to see your KNUST admission chances.</p>
+            </div>
+            <div class="calc-widget reveal-up">
+                <div class="calc-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Biology Grade</label>
+                            <select class="grade-select" data-subject="bio">
+                                <option value="1">A1</option>
+                                <option value="2">B2</option>
+                                <option value="3">B3</option>
+                                <option value="4">C4</option>
+                                <option value="5">C5</option>
+                                <option value="6">C6</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Chemistry Grade</label>
+                            <select class="grade-select" data-subject="chem">
+                                <option value="1">A1</option>
+                                <option value="2">B2</option>
+                                <option value="3">B3</option>
+                                <option value="4">C4</option>
+                                <option value="5">C5</option>
+                                <option value="6">C6</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Physics Grade</label>
+                            <select class="grade-select" data-subject="phy">
+                                <option value="1">A1</option>
+                                <option value="2">B2</option>
+                                <option value="3">B3</option>
+                                <option value="4">C4</option>
+                                <option value="5">C5</option>
+                                <option value="6">C6</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>E. Math Grade</label>
+                            <select class="grade-select" data-subject="math">
+                                <option value="1">A1</option>
+                                <option value="2">B2</option>
+                                <option value="3">B3</option>
+                                <option value="4">C4</option>
+                                <option value="5">C5</option>
+                                <option value="6">C6</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary btn-block" id="calculate-btn">Calculate Chances</button>
+                </div>
+                <div class="calc-result">
+                    <div class="gauge-container">
+                        <svg class="gauge-svg" viewBox="0 0 100 50">
+                            <path class="gauge-bg" d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke="#e2e8f0" stroke-width="8" stroke-linecap="round"></path>
+                            <path class="gauge-fill" id="gauge-fill" d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke="var(--primary-red)" stroke-width="8" stroke-linecap="round" stroke-dasharray="125.6" stroke-dashoffset="125.6"></path>
+                        </svg>
+                        <div class="gauge-label" id="gauge-label">--</div>
+                    </div>
+                    <h3 id="calc-aggregate">Aggregate: --</h3>
+                    <p id="calc-message">Enter your grades to see your aggregate and probability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Team Mentors -->
     <section class="team" id="team">
         <div class="container">
@@ -148,63 +258,79 @@
                 <h2>Our Team Mentors</h2>
                 <p>Meet the brilliant minds guiding your path to KNUST.</p>
             </div>
+            
+            <!-- Mentor Filters -->
+            <div class="filter-controls reveal-up">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="year-2">Year 2</button>
+                <button class="filter-btn" data-filter="year-4">Year 4</button>
+                <button class="filter-btn" data-filter="presec">Presec</button>
+                <button class="filter-btn" data-filter="prempeh">Prempeh</button>
+                <button class="filter-btn" data-filter="holy-child">Holy Child</button>
+            </div>
+
             <div class="team-grid">
                 <!-- Mentor 1 -->
-                <div class="team-card reveal-up" style="transition-delay: 0.1s;">
+                <div class="team-card reveal-up" data-year="year-4" data-shs="holy-child" style="transition-delay: 0.1s;">
                     <div class="mentor-img-wrapper">
                         <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Mentor">
                     </div>
                     <div class="mentor-info">
                         <h4>Dr. Sarah Osei</h4>
                         <span class="mentor-year">KNUST Med Year 4</span>
+                        <p class="mentor-shs">Alma Mater: Holy Child</p>
                         <p class="mentor-quote">"Inspiring the next generation to achieve greatness."</p>
                         <a href="#" class="btn-connect"><i class="ri-user-add-line"></i> Connect</a>
                     </div>
                 </div>
                 <!-- Mentor 2 -->
-                <div class="team-card reveal-up" style="transition-delay: 0.2s;">
+                <div class="team-card reveal-up" data-year="year-2" data-shs="presec" style="transition-delay: 0.2s;">
                     <div class="mentor-img-wrapper">
                         <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Mentor">
                     </div>
                     <div class="mentor-info">
                         <h4>Emmanuel Appiah</h4>
-                        <span class="mentor-year">KNUST Med Year 5</span>
+                        <span class="mentor-year">KNUST Med Year 2</span>
+                        <p class="mentor-shs">Alma Mater: Presec</p>
                         <p class="mentor-quote">"Dedication and guidance make the impossible possible."</p>
                         <a href="#" class="btn-connect"><i class="ri-user-add-line"></i> Connect</a>
                     </div>
                 </div>
                 <!-- Mentor 3 -->
-                <div class="team-card reveal-up" style="transition-delay: 0.3s;">
+                <div class="team-card reveal-up" data-year="year-4" data-shs="prempeh" style="transition-delay: 0.3s;">
                     <div class="mentor-img-wrapper">
                         <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Mentor">
                     </div>
                     <div class="mentor-info">
                         <h4>Kwesi Mensah</h4>
-                        <span class="mentor-year">KNUST Med Year 3</span>
+                        <span class="mentor-year">KNUST Med Year 4</span>
+                        <p class="mentor-shs">Alma Mater: Prempeh College</p>
                         <p class="mentor-quote">"Empowering students to excel in medical sciences."</p>
                         <a href="#" class="btn-connect"><i class="ri-user-add-line"></i> Connect</a>
                     </div>
                 </div>
                 <!-- Mentor 4 -->
-                <div class="team-card reveal-up" style="transition-delay: 0.4s;">
+                <div class="team-card reveal-up" data-year="year-2" data-shs="holy-child" style="transition-delay: 0.4s;">
                     <div class="mentor-img-wrapper">
                         <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Mentor">
                     </div>
                     <div class="mentor-info">
                         <h4>Abena Kwarteng</h4>
-                        <span class="mentor-year">KNUST Med Year 6</span>
+                        <span class="mentor-year">KNUST Med Year 2</span>
+                        <p class="mentor-shs">Alma Mater: Holy Child</p>
                         <p class="mentor-quote">"Your success is our ultimate priority."</p>
                         <a href="#" class="btn-connect"><i class="ri-user-add-line"></i> Connect</a>
                     </div>
                 </div>
                 <!-- Mentor 5 -->
-                <div class="team-card reveal-up" style="transition-delay: 0.5s;">
+                <div class="team-card reveal-up" data-year="year-4" data-shs="prempeh" style="transition-delay: 0.5s;">
                     <div class="mentor-img-wrapper">
                         <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="Mentor">
                     </div>
                     <div class="mentor-info">
                         <h4>Kofi Yeboah</h4>
                         <span class="mentor-year">KNUST Med Year 4</span>
+                        <p class="mentor-shs">Alma Mater: Prempeh College</p>
                         <p class="mentor-quote">"Excellence is not an act, but a habit."</p>
                         <a href="#" class="btn-connect"><i class="ri-user-add-line"></i> Connect</a>
                     </div>
