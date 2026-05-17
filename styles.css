@@ -537,6 +537,63 @@ ul {
     pointer-events: none;
 }
 
+/* --- Profile Hover Card --- */
+.profile-card-wrapper {
+    position: relative;
+    border-radius: var(--border-radius-xl);
+    overflow: hidden;
+    z-index: 2;
+}
+
+.profile-card-wrapper .illustration {
+    display: block;
+    width: 100%;
+    transition: transform 0.5s ease;
+}
+
+.profile-card-wrapper:hover .illustration {
+    transform: scale(1.04);
+}
+
+.profile-hover-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.6) 60%, transparent 100%);
+    padding: 2.5rem 2rem 2rem;
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 3;
+}
+
+.profile-card-wrapper:hover .profile-hover-overlay {
+    transform: translateY(0);
+}
+
+.profile-name {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.3px;
+}
+
+.profile-title {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+    line-height: 1.4;
+}
+
+.profile-title.ceo {
+    color: var(--primary-red);
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+}
+
 .why-us-content h2 {
     font-size: 3rem;
     margin-bottom: 2rem;
