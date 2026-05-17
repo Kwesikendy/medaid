@@ -173,18 +173,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (calcBtn) {
         calcBtn.addEventListener('click', () => {
-            let totalScore = 0;
-            // Assume Core subjects add up to best 2 (Math + English) mostly.
-            // Let's simplify: User inputs 4 electives. We assume core subjects add ~4 to the aggregate.
-            // So Total Aggregate = (Sum of 4 electives) + 4 (for Core)
-            let electiveSum = 0;
+            // Sum all 8 subject grades (lower = better in WASSCE)
+            let totalAggregate = 0;
             gradeSelects.forEach(select => {
-                electiveSum += parseInt(select.value);
+                totalAggregate += parseInt(select.value);
             });
-            
-            // Standard core assumption (Core Math + English + Integrated Science) = maybe 3 to 6
-            const assumedCoreAggregate = 4;
-            const finalAggregate = electiveSum + assumedCoreAggregate;
+
+            // WASSCE aggregate for top healthcare programs (best 6 of 8 subjects used by most universities)
+            // We'll use all 8 as entered, but note the best 6 would be lower
+            // For a realistic feel, we simulate a "best 6" by subtracting worst 2
+            const values = Array.from(gradeSelects).map(s => parseInt(s.value)).sort((a, b) => a - b);
+            const bestSix = values.slice(0, 6).reduce((sum, v) => sum + v, 0);
+            const finalAggregate = bestSix;
 
             // Medicine at KNUST usually requires aggregate 6-8.
             let probability = 0;

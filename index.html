@@ -197,51 +197,61 @@
             </div>
             <div class="calc-widget reveal-up">
                 <div class="calc-form">
+                    <p class="calc-note"><strong>Core Subjects</strong></p>
                     <div class="form-row">
                         <div class="form-group">
-                            <label>Biology Grade</label>
-                            <select class="grade-select" data-subject="bio">
-                                <option value="1">A1</option>
-                                <option value="2">B2</option>
-                                <option value="3">B3</option>
-                                <option value="4">C4</option>
-                                <option value="5">C5</option>
-                                <option value="6">C6</option>
+                            <label>English Language</label>
+                            <select class="grade-select">
+                                <option value="1">A1</option><option value="2">B2</option><option value="3">B3</option><option value="4">C4</option><option value="5">C5</option><option value="6">C6</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Chemistry Grade</label>
-                            <select class="grade-select" data-subject="chem">
-                                <option value="1">A1</option>
-                                <option value="2">B2</option>
-                                <option value="3">B3</option>
-                                <option value="4">C4</option>
-                                <option value="5">C5</option>
-                                <option value="6">C6</option>
+                            <label>Social Studies</label>
+                            <select class="grade-select">
+                                <option value="1">A1</option><option value="2">B2</option><option value="3">B3</option><option value="4">C4</option><option value="5">C5</option><option value="6">C6</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label>Physics Grade</label>
-                            <select class="grade-select" data-subject="phy">
-                                <option value="1">A1</option>
-                                <option value="2">B2</option>
-                                <option value="3">B3</option>
-                                <option value="4">C4</option>
-                                <option value="5">C5</option>
-                                <option value="6">C6</option>
+                            <label>Core Maths</label>
+                            <select class="grade-select">
+                                <option value="1">A1</option><option value="2">B2</option><option value="3">B3</option><option value="4">C4</option><option value="5">C5</option><option value="6">C6</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>E. Math Grade</label>
-                            <select class="grade-select" data-subject="math">
-                                <option value="1">A1</option>
-                                <option value="2">B2</option>
-                                <option value="3">B3</option>
-                                <option value="4">C4</option>
-                                <option value="5">C5</option>
-                                <option value="6">C6</option>
+                            <label>Integrated Science</label>
+                            <select class="grade-select">
+                                <option value="1">A1</option><option value="2">B2</option><option value="3">B3</option><option value="4">C4</option><option value="5">C5</option><option value="6">C6</option>
+                            </select>
+                        </div>
+                    </div>
+                    <p class="calc-note" style="margin-top:0.5rem;"><strong>Elective Subjects</strong></p>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Elective Maths</label>
+                            <select class="grade-select">
+                                <option value="1">A1</option><option value="2">B2</option><option value="3">B3</option><option value="4">C4</option><option value="5">C5</option><option value="6">C6</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Chemistry</label>
+                            <select class="grade-select">
+                                <option value="1">A1</option><option value="2">B2</option><option value="3">B3</option><option value="4">C4</option><option value="5">C5</option><option value="6">C6</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Physics</label>
+                            <select class="grade-select">
+                                <option value="1">A1</option><option value="2">B2</option><option value="3">B3</option><option value="4">C4</option><option value="5">C5</option><option value="6">C6</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Biology / E-ICT</label>
+                            <select class="grade-select">
+                                <option value="1">A1</option><option value="2">B2</option><option value="3">B3</option><option value="4">C4</option><option value="5">C5</option><option value="6">C6</option>
                             </select>
                         </div>
                     </div>
@@ -272,75 +282,71 @@
             <!-- Mentor Filters -->
             <div class="filter-controls reveal-up">
                 <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="year-1">Year 1</button>
                 <button class="filter-btn" data-filter="year-2">Year 2</button>
+                <button class="filter-btn" data-filter="year-3">Year 3</button>
                 <button class="filter-btn" data-filter="year-4">Year 4</button>
-                <button class="filter-btn" data-filter="presec">Presec</button>
-                <button class="filter-btn" data-filter="prempeh">Prempeh</button>
-                <button class="filter-btn" data-filter="holy-child">Holy Child</button>
+                <button class="filter-btn" data-filter="year-5">Year 5</button>
+                <button class="filter-btn" data-filter="year-6">Year 6</button>
             </div>
 
             <div class="team-grid">
                 <!-- Mentor 1 -->
-                <div class="team-card reveal-up" data-year="year-4" data-shs="holy-child" style="transition-delay: 0.1s;">
+                <div class="team-card reveal-up" data-year="year-4" style="transition-delay: 0.1s;">
                     <div class="mentor-img-wrapper">
                         <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Mentor">
                     </div>
                     <div class="mentor-info">
                         <h4>Dr. Sarah Osei</h4>
                         <span class="mentor-year">KNUST Med Year 4</span>
-                        <p class="mentor-shs">Alma Mater: Holy Child</p>
                         <p class="mentor-quote">"Inspiring the next generation to achieve greatness."</p>
                         <a href="#" class="btn-connect"><i class="ri-user-add-line"></i> Connect</a>
                     </div>
                 </div>
                 <!-- Mentor 2 -->
-                <div class="team-card reveal-up" data-year="year-2" data-shs="presec" style="transition-delay: 0.2s;">
+                <div class="team-card reveal-up" data-year="year-2" style="transition-delay: 0.2s;">
                     <div class="mentor-img-wrapper">
                         <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Mentor">
                     </div>
                     <div class="mentor-info">
                         <h4>Emmanuel Appiah</h4>
                         <span class="mentor-year">KNUST Med Year 2</span>
-                        <p class="mentor-shs">Alma Mater: Presec</p>
                         <p class="mentor-quote">"Dedication and guidance make the impossible possible."</p>
                         <a href="#" class="btn-connect"><i class="ri-user-add-line"></i> Connect</a>
                     </div>
                 </div>
                 <!-- Mentor 3 -->
-                <div class="team-card reveal-up" data-year="year-4" data-shs="prempeh" style="transition-delay: 0.3s;">
+                <div class="team-card reveal-up" data-year="year-4" style="transition-delay: 0.3s;">
                     <div class="mentor-img-wrapper">
                         <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Mentor">
                     </div>
                     <div class="mentor-info">
                         <h4>Kwesi Mensah</h4>
                         <span class="mentor-year">KNUST Med Year 4</span>
-                        <p class="mentor-shs">Alma Mater: Prempeh College</p>
                         <p class="mentor-quote">"Empowering students to excel in medical sciences."</p>
                         <a href="#" class="btn-connect"><i class="ri-user-add-line"></i> Connect</a>
                     </div>
                 </div>
                 <!-- Mentor 4 -->
-                <div class="team-card reveal-up" data-year="year-2" data-shs="holy-child" style="transition-delay: 0.4s;">
+                <div class="team-card reveal-up" data-year="year-2" style="transition-delay: 0.4s;">
                     <div class="mentor-img-wrapper">
                         <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Mentor">
                     </div>
                     <div class="mentor-info">
                         <h4>Abena Kwarteng</h4>
                         <span class="mentor-year">KNUST Med Year 2</span>
-                        <p class="mentor-shs">Alma Mater: Holy Child</p>
                         <p class="mentor-quote">"Your success is our ultimate priority."</p>
                         <a href="#" class="btn-connect"><i class="ri-user-add-line"></i> Connect</a>
                     </div>
                 </div>
                 <!-- Mentor 5 -->
-                <div class="team-card reveal-up" data-year="year-4" data-shs="prempeh" style="transition-delay: 0.5s;">
+                <div class="team-card reveal-up" data-year="year-4" style="transition-delay: 0.5s;">
                     <div class="mentor-img-wrapper">
                         <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="Mentor">
                     </div>
                     <div class="mentor-info">
                         <h4>Kofi Yeboah</h4>
                         <span class="mentor-year">KNUST Med Year 4</span>
-                        <p class="mentor-shs">Alma Mater: Prempeh College</p>
                         <p class="mentor-quote">"Excellence is not an act, but a habit."</p>
                         <a href="#" class="btn-connect"><i class="ri-user-add-line"></i> Connect</a>
                     </div>
